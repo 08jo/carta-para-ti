@@ -148,18 +148,22 @@
       font-size: 20px;
       animation: flotar 6s infinite ease-in;
       z-index: 1;
+      bottom: -30px; /* Posicionamos los corazones justo debajo de la pantalla */
     }
     
     @keyframes flotar {
       0% {
-        transform: translateY(100vh) scale(0.8);
+        transform: translateY(0) scale(0.8);
         opacity: 0;
       }
-      50% {
+      10% {
+        opacity: 1;
+      }
+      90% {
         opacity: 1;
       }
       100% {
-        transform: translateY(-10vh) scale(1.5);
+        transform: translateY(calc(-100vh - 50px)) scale(1.5);
         opacity: 0;
       }
     }
@@ -167,8 +171,8 @@
     /* Responsivo */
     @media (max-width: 768px) {
       .corazon-svg { 
-        width: 260px; /* Aumentado de 240px a 260px */
-        height: 235px; /* Aumentado de 215px a 235px */
+        width: 260px;
+        height: 235px;
         margin-bottom: 25px;
       }
       .indicacion { 
@@ -192,8 +196,8 @@
         padding: 25px 15px;
       }
       .corazon-svg { 
-        width: 240px; /* Aumentado de 200px a 240px */
-        height: 215px; /* Aumentado de 180px a 215px */
+        width: 240px;
+        height: 215px;
         margin: 5px 0 20px 0;
       }
       .indicacion { 
@@ -210,8 +214,8 @@
 
     @media (max-width: 350px) {
       .corazon-svg { 
-        width: 220px; /* Aumentado de 180px a 220px */
-        height: 195px; /* Aumentado de 160px a 195px */
+        width: 220px;
+        height: 195px;
         margin-bottom: 15px;
       }
       .indicacion { 
