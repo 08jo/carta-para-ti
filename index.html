@@ -29,26 +29,27 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 20px; /* Aumentado para mejor tactilidad */
+      padding: 30px 20px; /* Aumentado el padding superior e inferior */
     }
     
     .corazon-contenedor:hover {
       transform: scale(1.05);
     }
     
-    /* Corazón principal - Aumentado significativamente para móviles */
-    .corazon-principal {
-      font-size: 280px; /* Aumentado de 220px a 280px */
-      color: #e91e63;
+    /* Corazón SVG vectorial */
+    .corazon-svg {
+      width: 280px;
+      height: 250px;
       filter: drop-shadow(0 8px 25px rgba(233, 30, 99, 0.5));
       animation: latido 1.5s infinite;
-      line-height: 1;
+      transform-origin: center;
+      margin-bottom: 15px; /* Espacio adicional debajo del corazón */
     }
 
-    /* Texto de indicación bonito */
+    /* Texto de indicación - Aumentado el margen superior */
     .indicacion {
-      margin-top: 20px; /* Aumentado para mejor separación */
-      font-size: 22px; /* Aumentado ligeramente */
+      margin-top: 30px; /* Aumentado de 20px a 30px */
+      font-size: 22px;
       color: #fff;
       font-weight: bold;
       text-shadow: 0 3px 8px rgba(0,0,0,0.4);
@@ -56,6 +57,7 @@
       letter-spacing: 1px;
       padding: 0 10px;
       max-width: 90%;
+      line-height: 1.4;
     }
 
     @keyframes brillo {
@@ -63,12 +65,12 @@
       50% { opacity: 0.7; text-shadow: 0 0 15px #fff, 0 0 25px #ff80ab, 0 0 40px #ff4081; }
     }
     
-    /* Carta (inicialmente oculta) */
+    /* Carta */
     .carta {
       background: white;
       max-width: 600px;
       width: 95%;
-      padding: 30px 25px; /* Aumentado el padding para mejor legibilidad */
+      padding: 30px 25px;
       border-radius: 20px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.25);
       text-align: center;
@@ -79,8 +81,8 @@
       opacity: 0;
       transition: all 0.5s ease-in-out;
       z-index: 20;
-      max-height: 85vh; /* Limitar altura máxima */
-      overflow-y: auto; /* Permitir scroll si es necesario */
+      max-height: 85vh;
+      overflow-y: auto;
     }
     
     .carta.activa {
@@ -90,8 +92,8 @@
     
     h2 {
       color: #e91e63;
-      margin-bottom: 20px; /* Aumentado para mejor separación */
-      font-size: 28px; /* Aumentado para mejor legibilidad */
+      margin-bottom: 20px;
+      font-size: 28px;
       word-wrap: break-word;
       line-height: 1.3;
     }
@@ -99,30 +101,30 @@
     p {
       color: #333;
       line-height: 1.7;
-      margin-bottom: 18px; /* Aumentado para mejor separación */
-      font-size: 19px; /* Aumentado para mejor legibilidad */
+      margin-bottom: 18px;
+      font-size: 19px;
       word-wrap: break-word;
     }
     
     .signature {
-      margin-top: 25px; /* Aumentado para mejor separación */
+      margin-top: 25px;
       font-style: italic;
       color: #e91e63;
       font-weight: bold;
-      font-size: 20px; /* Aumentado para mejor legibilidad */
+      font-size: 20px;
     }
     
-    /* Botón de cerrar - Más grande para móviles */
+    /* Botón de cerrar */
     .cerrar {
       position: absolute;
       top: 15px;
       right: 15px;
       background: none;
       border: none;
-      font-size: 32px; /* Aumentado para mejor tactilidad */
+      font-size: 32px;
       color: #e91e63;
       cursor: pointer;
-      width: 40px; /* Área de toque más grande */
+      width: 40px;
       height: 40px;
       display: flex;
       justify-content: center;
@@ -136,7 +138,7 @@
       50% { transform: scale(1.25); }
     }
     
-    /* Corazones flotando de fondo */
+    /* Corazones flotando */
     .corazon {
       position: absolute;
       color: #ff4d6d;
@@ -159,83 +161,63 @@
       }
     }
 
-    /* Responsivo - Media queries optimizadas */
+    /* Responsivo */
     @media (max-width: 768px) {
-      .corazon-principal {
-        font-size: 240px; /* Aumentado de 180px a 240px */
+      .corazon-svg { 
+        width: 240px; 
+        height: 215px;
       }
-      .indicacion {
-        font-size: 20px; /* Aumentado de 18px a 20px */
+      .indicacion { 
+        font-size: 20px; 
+        margin-top: 25px; /* Ajuste para tablet */
       }
-      .carta {
-        padding: 25px 20px; /* Aumentado ligeramente */
-        width: 90%; /* Un poco más ancha en tablets */
-      }
-      h2 {
-        font-size: 26px; /* Aumentado de 22px a 26px */
-      }
-      p {
-        font-size: 18px; /* Aumentado de 16px a 18px */
-      }
-      .signature {
-        font-size: 19px; /* Aumentado para tablets */
-      }
+      .carta { padding: 25px 20px; width: 90%; }
+      h2 { font-size: 26px; }
+      p { font-size: 18px; }
+      .signature { font-size: 19px; }
     }
 
     @media (max-width: 480px) {
-      .corazon-principal {
-        font-size: 200px; /* Aumentado de 150px a 200px */
-        margin: 10px 0;
+      .corazon-contenedor {
+        padding: 25px 15px; /* Ajuste para móviles */
       }
-      .indicacion {
-        font-size: 18px; /* Aumentado de 16px a 18px */
-        margin-top: 15px;
+      .corazon-svg { 
+        width: 200px; 
+        height: 180px;
+        margin: 5px 0 10px 0; /* Ajuste de márgenes para móviles */
       }
-      .carta {
-        padding: 20px 15px;
-        width: 85%; /* Un poco más ancha en móviles */
-        max-height: 80vh; /* Altura máxima ajustada */
+      .indicacion { 
+        font-size: 18px; 
+        margin-top: 20px; /* Ajuste para móviles */
       }
-      h2 {
-        font-size: 24px; /* Aumentado de 20px a 24px */
-        margin-bottom: 15px;
-      }
-      p {
-        font-size: 17px; /* Aumentado de 15px a 17px */
-        margin-bottom: 15px;
-      }
-      .signature {
-        font-size: 18px; /* Aumentado para móviles */
-        margin-top: 20px;
-      }
-      .cerrar {
-        font-size: 28px; /* Ajustado para móviles */
-        width: 36px;
-        height: 36px;
-      }
-      
-      /* Reducir número de corazones flotantes en móviles para mejor rendimiento */
-      .corazon:nth-child(n+4) {
-        display: none;
-      }
+      .carta { padding: 20px 15px; width: 85%; max-height: 80vh; }
+      h2 { font-size: 24px; margin-bottom: 15px; }
+      p { font-size: 17px; margin-bottom: 15px; }
+      .signature { font-size: 18px; margin-top: 20px; }
+      .cerrar { font-size: 28px; width: 36px; height: 36px; }
     }
 
-    /* Para pantallas muy pequeñas */
     @media (max-width: 350px) {
-      .corazon-principal {
-        font-size: 180px; /* Ajuste fino para pantallas muy pequeñas */
+      .corazon-svg { 
+        width: 180px; 
+        height: 160px;
       }
-      .indicacion {
-        font-size: 16px;
+      .indicacion { 
+        font-size: 16px; 
+        margin-top: 15px; /* Ajuste para pantallas muy pequeñas */
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Corazón principal -->
+  <!-- Corazón principal con SVG vectorial -->
   <div class="corazon-contenedor">
-    <div class="corazon-principal">❤️</div>
+    <div class="corazon-svg">
+      <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z" fill="#e91e63"/>
+      </svg>
+    </div>
     <div class="indicacion">✨ Toca el corazón para abrir tu sorpresa 💖 ✨</div>
   </div>
   
@@ -250,7 +232,7 @@
     <p class="signature">Con todo mi cariño,<br>Alguien que se pierde en su sonrisa 💕</p>
   </div>
 
-  <!-- Corazones flotando -->
+  <!-- Corazones flotantes -->
   <div class="corazon" style="left:10%; animation-delay: 0s;">❤️</div>
   <div class="corazon" style="left:30%; animation-delay: 2s;">💕</div>
   <div class="corazon" style="left:50%; animation-delay: 4s;">💖</div>
