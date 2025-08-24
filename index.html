@@ -29,15 +29,16 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      padding: 20px; /* Aumentado para mejor tactilidad */
     }
     
     .corazon-contenedor:hover {
       transform: scale(1.05);
     }
     
-    /* Corazón principal */
+    /* Corazón principal - Aumentado significativamente para móviles */
     .corazon-principal {
-      font-size: 220px; /* más grande para móviles modernos */
+      font-size: 280px; /* Aumentado de 220px a 280px */
       color: #e91e63;
       filter: drop-shadow(0 8px 25px rgba(233, 30, 99, 0.5));
       animation: latido 1.5s infinite;
@@ -46,13 +47,15 @@
 
     /* Texto de indicación bonito */
     .indicacion {
-      margin-top: 15px;
-      font-size: 20px;
+      margin-top: 20px; /* Aumentado para mejor separación */
+      font-size: 22px; /* Aumentado ligeramente */
       color: #fff;
       font-weight: bold;
       text-shadow: 0 3px 8px rgba(0,0,0,0.4);
       animation: brillo 2s infinite;
       letter-spacing: 1px;
+      padding: 0 10px;
+      max-width: 90%;
     }
 
     @keyframes brillo {
@@ -65,7 +68,7 @@
       background: white;
       max-width: 600px;
       width: 95%;
-      padding: 25px 20px;
+      padding: 30px 25px; /* Aumentado el padding para mejor legibilidad */
       border-radius: 20px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.25);
       text-align: center;
@@ -76,6 +79,8 @@
       opacity: 0;
       transition: all 0.5s ease-in-out;
       z-index: 20;
+      max-height: 85vh; /* Limitar altura máxima */
+      overflow-y: auto; /* Permitir scroll si es necesario */
     }
     
     .carta.activa {
@@ -85,36 +90,44 @@
     
     h2 {
       color: #e91e63;
-      margin-bottom: 15px;
-      font-size: 24px;
+      margin-bottom: 20px; /* Aumentado para mejor separación */
+      font-size: 28px; /* Aumentado para mejor legibilidad */
       word-wrap: break-word;
+      line-height: 1.3;
     }
     
     p {
       color: #333;
       line-height: 1.7;
-      margin-bottom: 12px;
-      font-size: 17px;
+      margin-bottom: 18px; /* Aumentado para mejor separación */
+      font-size: 19px; /* Aumentado para mejor legibilidad */
       word-wrap: break-word;
     }
     
     .signature {
-      margin-top: 18px;
+      margin-top: 25px; /* Aumentado para mejor separación */
       font-style: italic;
       color: #e91e63;
       font-weight: bold;
+      font-size: 20px; /* Aumentado para mejor legibilidad */
     }
     
-    /* Botón de cerrar */
+    /* Botón de cerrar - Más grande para móviles */
     .cerrar {
       position: absolute;
       top: 15px;
       right: 15px;
       background: none;
       border: none;
-      font-size: 24px;
+      font-size: 32px; /* Aumentado para mejor tactilidad */
       color: #e91e63;
       cursor: pointer;
+      width: 40px; /* Área de toque más grande */
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 30;
     }
     
     /* Latido */
@@ -146,40 +159,74 @@
       }
     }
 
-    /* Responsivo */
+    /* Responsivo - Media queries optimizadas */
     @media (max-width: 768px) {
       .corazon-principal {
-        font-size: 180px;
+        font-size: 240px; /* Aumentado de 180px a 240px */
       }
       .indicacion {
-        font-size: 18px;
+        font-size: 20px; /* Aumentado de 18px a 20px */
       }
       .carta {
-        padding: 20px 15px;
+        padding: 25px 20px; /* Aumentado ligeramente */
+        width: 90%; /* Un poco más ancha en tablets */
       }
       h2 {
-        font-size: 22px;
+        font-size: 26px; /* Aumentado de 22px a 26px */
       }
       p {
-        font-size: 16px;
+        font-size: 18px; /* Aumentado de 16px a 18px */
+      }
+      .signature {
+        font-size: 19px; /* Aumentado para tablets */
       }
     }
 
     @media (max-width: 480px) {
       .corazon-principal {
-        font-size: 150px;
+        font-size: 200px; /* Aumentado de 150px a 200px */
+        margin: 10px 0;
+      }
+      .indicacion {
+        font-size: 18px; /* Aumentado de 16px a 18px */
+        margin-top: 15px;
+      }
+      .carta {
+        padding: 20px 15px;
+        width: 85%; /* Un poco más ancha en móviles */
+        max-height: 80vh; /* Altura máxima ajustada */
+      }
+      h2 {
+        font-size: 24px; /* Aumentado de 20px a 24px */
+        margin-bottom: 15px;
+      }
+      p {
+        font-size: 17px; /* Aumentado de 15px a 17px */
+        margin-bottom: 15px;
+      }
+      .signature {
+        font-size: 18px; /* Aumentado para móviles */
+        margin-top: 20px;
+      }
+      .cerrar {
+        font-size: 28px; /* Ajustado para móviles */
+        width: 36px;
+        height: 36px;
+      }
+      
+      /* Reducir número de corazones flotantes en móviles para mejor rendimiento */
+      .corazon:nth-child(n+4) {
+        display: none;
+      }
+    }
+
+    /* Para pantallas muy pequeñas */
+    @media (max-width: 350px) {
+      .corazon-principal {
+        font-size: 180px; /* Ajuste fino para pantallas muy pequeñas */
       }
       .indicacion {
         font-size: 16px;
-      }
-      .carta {
-        padding: 15px 10px;
-      }
-      h2 {
-        font-size: 20px;
-      }
-      p {
-        font-size: 15px;
       }
     }
   </style>
@@ -227,6 +274,16 @@
         corazonContenedor.style.display = 'flex';
       }, 500);
     });
+
+    // Prevenir zoom en doble tap en iOS
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', function (event) {
+      const now = (new Date()).getTime();
+      if (now - lastTouchEnd <= 300) {
+        event.preventDefault();
+      }
+      lastTouchEnd = now;
+    }, false);
   </script>
 
 </body>
